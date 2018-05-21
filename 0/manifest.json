@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "version": "0.0.0",
+    "name": "beginner",
+    "icons": {
+        "16": "images/0.png",
+        "48": "images/0.png",
+        "128": "images/0.png",
+        "256": "images/0.png"
+    },
+    "browser_action": {
+        "default_icon": "images/0.png",
+        "default_title": "very simple popup",
+        "default_popup": "popup.html"
+    }
+
+}
