@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "\u25C0rowser action",
+    "version": "0.0.0",
+    "description": "simple way to use browser action",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_title": "create a new window"
+    },
+    "permissions": [
+        "tabs"
+    ]
+}
