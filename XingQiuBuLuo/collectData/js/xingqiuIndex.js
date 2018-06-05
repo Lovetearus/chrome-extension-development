@@ -1,10 +1,7 @@
 let arr = []
 
 function sendMessage() {
-    chrome.runtime.sendMessage({ cmd: 'send', value: arr },
-        (response) => {
-            console.log("background recieved : " + response)
-        })
+    chrome.runtime.sendMessage({ cmd: 'send', value: arr })
 }
 
 function getHref() {
@@ -21,7 +18,6 @@ $(function() {
         setTimeout(function() {
             document.getElementById('jRecommend').click()
             $(".right,#toolbar,header,footer").remove()
-
             $('.live li[data-game!=1004]').remove()
             $('.live li').css({
                 float: 'left',
@@ -29,7 +25,6 @@ $(function() {
                 height: "208px"
             })
         }, 500)
-
         getHref()
         sendMessage()
     }, 3000)
