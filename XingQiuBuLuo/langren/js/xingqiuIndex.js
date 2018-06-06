@@ -5,7 +5,7 @@ function sendMessage(str) {
 }
 
 function getHref() {
-    let lia = $('.live li[data-game=1004]>a')
+    let lia = $('.live li[data-game=1003]>a')
     for (let i = 0; i < lia.length; i++) {
         let href = lia[i].href
         if (arr.indexOf(href) < 0) {
@@ -19,7 +19,7 @@ $(function() {
         setTimeout(function() {
             document.getElementById('jRecommend').click()
             $(".right,#toolbar,header,footer").remove()
-            $('.live li[data-game!=1004]').remove()
+            $('.live li[data-game!=1003]').remove()
             $('.live li').css({
                 float: 'left',
                 width: "180px",

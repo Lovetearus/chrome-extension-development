@@ -29,7 +29,7 @@ function notification(message) {
     })
 }
 
-
+let mainId = undefined
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendReponse) {
     if (request.cmd == 'send') {
@@ -45,26 +45,16 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendReponse) {
             })
         }
     }
-
-
-
     if (request.cmd == 'zhubo') {
-        let arrayForPing = request.value
+        let arrayForPing = request.valueLangren
 
         if (arrfortemp.indexOf(arrayForPing) < 0) {
             arrfortemp.push(arrayForPing)
-
-            if (arrayForPing[arrayForPing.length - 1] == '2') {
-
-
+            if (request.result == '2') {
                 notification(" " + request.id + " Ping la!!!")
             }
 
-            if (request.middle == '1,6,1') {
 
-
-                notification(" 1-------6666666!")
-            }
 
         }
 
