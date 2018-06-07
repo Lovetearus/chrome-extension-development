@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "Gift extension",
+    "version": "0.0.0",
+    "content_scripts": [{
+        "matches": ["http://www.xingqiu.tv/*"],
+        "js": ["js/jquery-3.3.1.min.js", "js/play.js"],
+        "run_at": "document_end"
+    }],
+    "background": {
+
+        "scripts": ["js/background.js"]
+    },
+    "icons": {
+        "16": "award_star_gold_1.png",
+        "32": "award_star_gold_1.png",
+        "128": "award_star_gold_1.png",
+        "256": "award_star_gold_1.png"
+    },
+    "browser_action": {
+        "default_icon": "award_star_gold_1.png",
+        "default_title": "send gift ",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "tabs"
+    ]
+}

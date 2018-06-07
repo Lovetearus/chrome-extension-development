@@ -19,11 +19,3 @@ chrome.windows.onCreated.addListener(function(createWindowInfo) {
 
     notification("oh my god ..some body is borning")
 })
-chrome.windows.onRemoved.addListener(function(winId) {
-
-    notification("oh my god ..You can;t move it!")
-})
-chrome.windows.onFocusChanged.addListener(function(createWindowInfo) {
-
-    notification("oh my god .. focus changing")
-})

@@ -91,8 +91,11 @@ $(function() {
             let leftPai = huase[leftFirst % 4] + paimian[parseInt(leftFirst / 4)]
             let rightPai = huase[rightFirst % 4] + paimian[parseInt(rightFirst / 4)]
             let bool = paimian[parseInt(leftFirst / 4)] == paimian[parseInt(rightFirst / 4)]
-            let messageforMain = leftFirst + "(" + leftPai +
+            let tail = (leftFirst > rightFirst && lastResult[lastResult.length - 1] == '0' ||
+                leftFirst < rightFirst && lastResult[lastResult.length - 1] == '1') ? "**" : "))"
+            let messageforMain = tail + leftFirst + "(" + leftPai +
                 '__' + rightPai + ")" + rightFirst + "-=>" + lastResult
+
             if (zhuboaaray == [] || zhuboaaray[zhuboaaray.length - 1] != messageforMain) {
                 let li = document.createElement('li')
                 li.style.width = '250'
