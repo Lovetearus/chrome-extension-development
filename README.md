@@ -14,13 +14,13 @@ jpg做图标貌似不行。
 1. 按一定规则新建标签，判定是否是视频页面，不是就关掉
    1. use setTimeout ,the extension always crash ..
   
-        let count = 0
-        while (count < 13) {
-            setTimeout(() => {
-                console.log(count)
-                count++
-            }, 2000);
-        }
+            let count = 0
+            while (count < 13) {
+                setTimeout(() => {
+                    console.log(count)
+                    count++
+                }, 2000);
+            }
         
   it is not working .nothing is happen in debugger?        
 
