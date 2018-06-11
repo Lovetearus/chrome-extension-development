@@ -1,21 +1,18 @@
-let winId = ''
-chrome.windows.create({
-    url: "https://google.com"
-}, function(win) {
-    winId = win.windowId
-})
-
-function notification(str) {
+function notification(id) {
     chrome.notifications.create({
         type: 'basic',
         title: "good news",
-        message: str,
+        message: id,
         iconUrl: "images/accept.png"
 
     })
 }
-let createWindowInfo = { windowId: winId }
-chrome.windows.onCreated.addListener(function(createWindowInfo) {
 
-    notification("oh my god ..some body is borning")
+function deleteTab() {
+    chrome.tabs.getSelected(function(tab) {
+        chrome.tabs.remove(tab.id)
+    })
+}
+chrome.runtime.onMessage.addListener(function(re, send, response) {
+    if (re.cmd == 'deleteTab') { deleteTab() }
 })

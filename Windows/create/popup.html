@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        tr td {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <button id="showProperty">
+            showProperties
+        </button>
+
+        <div>
+            <h2>
+
+                current window
+            </h2>
+            <table style='width:290px;height:100px'>
+                <tr>
+                    <td>
+                        id
+                    </td>
+                    <td id='windowId'></td>
+                </tr>
+                <tr>
+                    <td>
+                        type
+                    </td>
+                    <td id='windowType'></td>
+                </tr>
+                <tr>
+                    <td>
+                        urls
+                    </td>
+                    <td id='windowUrls'></td>
+                </tr>
+                <tr>
+                    <td>
+                        state
+                    </td>
+                    <td id='windowState'></td>
+                </tr>
+                <tr>
+                    <td>
+                        width
+                    </td>
+                    <td id='windowWidth'></td>
+                </tr>
+                <tr>
+                    <td>
+                        height
+                    </td>
+                    <td id='windowHeight'></td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+    <button id="buttonCreateWindow">create</button>
+    <button id='buttonDeleteTab'>remove</button>
+    <button>update</button>
+    <button>mergin</button>
+    <script src='js/popup.js' type='text/javascript'></script>
+</body>
+
+</html>

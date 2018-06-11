@@ -7,5 +7,16 @@
     },
     "permissions": [
         "notifications"
-    ]
+
+    ],
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_title": "window CRUD",
+        "default_icon": "images/accept.png"
+    },
+    "content_scripts": [{
+        "matches": ["http://www.xingqiu.tv/*"],
+        "js": ["js/isLiving.js"],
+        "run_at": "document_end"
+    }]
 }

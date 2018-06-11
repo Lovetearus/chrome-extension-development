@@ -1,34 +1,73 @@
 let counts = 0
 let countq = 0
 let countb = 0
+
+let numberOneTime = 2
+let isSendLanbaoshi = false,
+    qingshuNumberSendOneTime = 2,
+    qingshuSendStamp = 45000
+let isSendQingshu = true,
+    baoshiNumberSendOneTime = 1,
+    baoshiSendStamp = 90000
+
+
+let siye = $(".swiper-lazy")[1]
+let qingshu = $(".swiper-lazy")[10]
+let baoshi = $(".swiper-lazy")[21]
+let sendGift = document.getElementById('jSendGift')
+
+siye.click()
+sendGift.click()
+$('body > script:nth-child(9)').remove()
+
+
+
 setInterval(() => {
-    setTimeout(() => {
-        let siye = $(".swiper-lazy")[1].click()
-            // for (let i = 0; i < 44; i++) {
-        document.getElementById('jSendGift').click() // }
-        counts++
-    }, 15000);
-
-
-    // location.href = "http://www.xingqiu.tv/8765568.html"
-}, 15555)
-setInterval(() => {
-    let siye = $(".swiper-lazy")[10].click()
-
-    if (countq < 99) {
-
-        document.getElementById('jSendGift').click()
-
-
+    numberOneTime = Math.floor(Math.random() * 2) + 2
+    siye.click()
+    for (let i = 0; i < numberOneTime; i++) {
+        sendGift.click()
     }
-    countq++
-}, 45000);
+}, 33000)
 setInterval(() => {
-    let siye = $(".swiper-lazy")[21].click()
-    if (countb < 99) {
-
-        document.getElementById('jSendGift').click()
-
+    qingshu.click()
+    for (let ii = 0; ii < 1; ii++) {
+        sendGift.click()
     }
-    countb++
-}, 90000);
+
+}, 120000)
+
+// baoshi.click()
+// for (let iii = 0; iii < 0; i++) {
+//     sendGift.click()
+// }
+
+
+
+
+
+
+
+
+
+
+// // if (isSendQingshu === true) {
+// setInterval(() => {
+//     qingshu.click()
+//     for (let ii = 0; ii < qingshuNumberSendOneTime; ii++) {
+//         sendGift.click()
+//     }
+
+// }, qingshuSendStamp);
+// // }
+
+
+// if (isSendLanbaoshi) {
+// setInterval(() => {
+
+//     for (let iii = 0; iii < baoshiNumberSendOneTime; iii++)
+
+//     sendGift.click()
+// }, baoshiSendStamp);
+
+// }
