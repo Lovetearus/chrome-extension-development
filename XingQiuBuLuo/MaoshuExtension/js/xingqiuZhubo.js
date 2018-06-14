@@ -77,6 +77,7 @@ $(function() {
                     li.style.color = 'yellow'
                     li.style.fontSize = '38'
                     l = 0
+                    chrome.runtime.sendMessage({ cmd: "highlight", value: location.href })
 
                 } else if (lastResult[lastResult.length - 1] == '1') {
                     li.style.color = '#e88116'

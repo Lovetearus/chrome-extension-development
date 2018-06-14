@@ -7,6 +7,7 @@ const column = 4,
     row = 3
 let docker = column * row
 let windCounter = 0
+let hrefToUrl = {}
 
 let allZhuoboArray = []
 chrome.windows.create({
@@ -42,6 +43,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendReponse) {
                 height: 600,
                 top: 0,
                 left: 1400
+            }, function(win) {
+                hrefToUrl.hrefFromIndexActiveZhuo.id = win.id
+
             })
         }
     }
@@ -70,5 +74,19 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendReponse) {
 
 
     }
+
+    if (request.cmd == "highlight") {
+        let highlight = request.value
+
+        if (urls.indexOf(highlight) > 0) {
+            chrome.windows.update(hrefToUrl.highlight.id, {
+                top: 0,
+                left: 700,
+                focused: true
+            })
+        }
+    }
+
+
 
 })

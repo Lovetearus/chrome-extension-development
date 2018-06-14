@@ -12,8 +12,8 @@ let isSendQingshu = true,
 
 
 let siye = $(".swiper-lazy")[1]
-let qingshu = $(".swiper-lazy")[10]
-let baoshi = $(".swiper-lazy")[21]
+let qingshu = $(".swiper-lazy")[12]
+let baoshi = $(".swiper-lazy")[24]
 let sendGift = document.getElementById('jSendGift')
 
 siye.click()
@@ -23,7 +23,7 @@ $('body > script:nth-child(9)').remove()
 
 
 setInterval(() => {
-    numberOneTime = Math.floor(Math.random() * 2) + 2
+    numberOneTime = Math.floor(Math.random() * 11) + 2
     siye.click()
     for (let i = 0; i < numberOneTime; i++) {
         sendGift.click()
@@ -31,7 +31,7 @@ setInterval(() => {
 }, 33000)
 setInterval(() => {
     qingshu.click()
-    for (let ii = 0; ii < 1; ii++) {
+    for (let ii = 0; ii < 2; ii++) {
         sendGift.click()
     }
 

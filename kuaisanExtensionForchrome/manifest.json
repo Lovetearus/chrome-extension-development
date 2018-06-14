@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "A  kuai san entension",
+    "version": "0.0.0",
+    "icons": {
+        "16": "images/0.png",
+        "48": "images/0.png",
+        "128": "images/0.png",
+        "256": "images/0.png"
+    },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "browser_action": {
+        "default_icon": "images/0.png",
+        "default_title": "kuai san :"
+    },
+    "permissions": [
+        "tabs",
+        "notifications"
+    ],
+    "content_scripts": [{
+        "matches": ["http://duowan2.com/lotteryV3/lotDetail.do?lotCode=WFK3",
+            "http://duowan333.com/lotteryV3/lotDetail.do?lotCode=WFK3",
+            "http://duowan333.com/lotteryV3/lotDetail.do?lotCode=FFK3"
+        ],
+        "js": ["js/jquery-3.3.1.min.js", "js/play.js"],
+        "run_at": "document_end"
+    }]
+}
