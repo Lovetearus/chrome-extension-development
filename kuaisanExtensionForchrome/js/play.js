@@ -1,6 +1,7 @@
-const betArray1 = [15, 45, 110, 240, 520, 1110]
-const betArray = [1, 2, 4, 3, 5, 7]
-const whenMoneyMoreThan = 100
+const betArray1 = [15, 45, 110, 240, 520, 1110] //15 30  50 70  110  80
+const betArray11 = [2, 3, 4, 3, 5, 6]
+const betArray = [3, 3, 7, 16, 28, 15] //2 1 2 4 0  -26/-71  3 0 1 3 -1 
+const whenMoneyMoreThan = 10000
     //15  30  50 70 110 180
 let one = $('.i a')[0]
 let two = $('.ii a')[0]
@@ -10,7 +11,8 @@ let five = $('.v a')[0]
 
 let enter = $('.commitbtn')[0]
 let reset = $('.resetbtn')[0]
-
+let lianCount = 0,
+    tiaoCount = 0
 
 function bet(num) {
     let one1 = num % 10
@@ -77,44 +79,97 @@ let betMoney = setInterval(() => {
         let end = resultArr[resultArr.length - 1]
 
 
-        if (end.bigOrSmall != resultArr[resultArr.length - 2].bigOrSmall || resultArr.length === 1) {
-            count = 0
-        }
-        if (end.bigOrSmall == resultArr[resultArr.length - 2].bigOrSmall) {
-            count++
-            count = count % 6
-        }
-        bet(betArray[count])
-        $(" #bet_panel > ul > li.on > a").click()
+        // if (end.bigOrSmall != resultArr[resultArr.length - 2].bigOrSmall || resultArr.length === 1) {
+        //     count = 0
+        // }
+        // if (end.bigOrSmall == resultArr[resultArr.length - 2].bigOrSmall) {
+        //     count++
+        //     count = count % 6
+        // }
+        if (tiaoCount - lianCount < 7) {
 
 
-        let big = $('#daxiaoshaibao_12759 > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(12)>input')
-        let small = $('#daxiaoshaibao_12759 > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(15)>input')
+            if (end.bigOrSmall == resultArr[resultArr.length - 2].bigOrSmall || resultArr.length === 1) {
+                count = 0
+                lianCount++
+            }
+            if (end.bigOrSmall != resultArr[resultArr.length - 2].bigOrSmall) {
+                count++
+                tiaoCount++
+                count = count % 6
+            }
 
 
-        if (lastResult < 11) {
-            big.click()
-            big.click()
-            big.click()
+            bet(betArray[count])
+            $(" #bet_panel > ul > li.on > a").click()
+
+
+            let big = $('#daxiaoshaibao_12759 > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(12)>input')
+            let small = $('#daxiaoshaibao_12759 > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(15)>input')
+
+
+            if (lastResult < 11) {
+                small.click()
+                small.click()
+                small.click()
+            } else {
+                big.click()
+                big.click()
+                big.click()
+
+            }
         } else {
-            small.click()
-            small.click()
-            small.click()
+
+            if (end.bigOrSmall == resultArr[resultArr.length - 2].bigOrSmall || resultArr.length === 1) {
+                count++
+                lianCount++
+            }
+            if (end.bigOrSmall != resultArr[resultArr.length - 2].bigOrSmall) {
+                count = 0
+                tiaoCount++
+                count = count % 6
+            }
+
+
+            bet(betArray[count])
+            $(" #bet_panel > ul > li.on > a").click()
+
+
+            let big = $('#daxiaoshaibao_12759 > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(12)>input')
+            let small = $('#daxiaoshaibao_12759 > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(15)>input')
+
+
+            if (lastResult < 11) {
+                big.click()
+                big.click()
+                big.click()
+            } else {
+                small.click()
+                small.click()
+                small.click()
+
+            }
+
         }
 
 
         enter.click()
+        sleep(3000)
         $('div.layui-layer-btn > a.layui-layer-btn0')[0].click()
+        console.log("lian:" + lianCount + " _____tiao:" + tiaoCount)
 
 
 
-        if (Number($("#header_user_money").text()) - initMoney > whenMoneyMoreThan) {
-            chrome.runtime.sendMessage({ cmd: "complete", value: "mission is completed!" })
-            clearInterval(betMoney)
-        }
+        // if (Number($("#header_user_money").text()) - initMoney > whenMoneyMoreThan) {
+        //     chrome.runtime.sendMessage({ cmd: "complete", value: "mission is completed!" })
+        //     clearInterval(betMoney)
+        // }
 
     }
 
 
 
 }, 5000)
+setTimeout(() => {
+    location.href = "http://duowan333.com/lotteryV3/lotDetail.do?lotCode=FFK3"
+}, 1800000);
